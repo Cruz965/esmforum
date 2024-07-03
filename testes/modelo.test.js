@@ -12,6 +12,15 @@ test('Testando banco de dados vazio', () => {
   expect(modelo.listar_perguntas().length).toBe(0);
 });
 
+
+  test ('Testando gravar uma resposta', () => {
+    modelo.cadastrar_pergunta('1 + 1 = ?');
+    //o id mais recent no front end é 6 então pus 7
+    modelo.cadastrar_resposta(modelo.get_pergunta(7), '2');
+    const resp = modelo.get_respostas(7);
+    expect(resp.texto).toBe('2');
+  });
+
 test('Testando cadastro de três perguntas', () => {
   modelo.cadastrar_pergunta('1 + 1 = ?');
   modelo.cadastrar_pergunta('2 + 2 = ?');
