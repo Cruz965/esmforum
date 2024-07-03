@@ -18,7 +18,7 @@ test('Testando banco de dados vazio', () => {
     //o id mais recent no front end é 6 então pus 7
     modelo.cadastrar_resposta(modelo.get_pergunta(7), '2');
     const resp = modelo.get_respostas(7);
-    expect(resp.texto).toBe('2');
+    expect(resp[0].texto).toBe('2');
   });
 
 test('Testando cadastro de três perguntas', () => {
