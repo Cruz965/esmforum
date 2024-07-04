@@ -13,7 +13,14 @@ test('Testando banco de dados vazio', () => {
 });
 
 
-
+test('Deve cadastrar e recuperar uma pergunta', () => {
+  
+  const idPergunta = modelo.cadastrar_pergunta('1 + 1 = ?');
+  const perg = modelo.get_pergunta(idPergunta);
+  
+  expect (perg.texto).toBe('1 + 1 = ?');
+  
+});
   test('Testando gravar uma resposta', () => {
     const idPergunta = modelo.cadastrar_pergunta('1 + 1 = ?');
     modelo.cadastrar_resposta(idPergunta, '2');
